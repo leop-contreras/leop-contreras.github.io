@@ -80,29 +80,51 @@
     </body>
 </html>
 <script>
-    function modifyDisplay(i,displayID){
-        number = document.getElementById(displayID).innerHTML;
+    function modifyDisplay(i, displayID) {
+        let number = document.getElementById(displayID).innerHTML;
         number = +number + +i;
-        if(number >= 0 && number <= 99){
-            if(number < 10){
-                number = "0" + number
+        if (number >= 0 && number <= 99) {
+            if (number < 10) {
+                number = "0" + number;
             }
             document.getElementById(displayID).innerHTML = number;
+
+            // Send the updated value to the server to update the CSV
+            updateCSV(displayID, number);
         }
     }
-    
-    function loadValues(){
+
+    function loadValues() {
         fetch('text.csv')
         .then(response => response.text())  // Convert to text
         .then(data => {
             const rows = data.split('\n'); // Split the CSV into rows
             const headers = rows[0].split(','); // Extract headers
-            document.getElementById("display1").innerHTML=parseInt(headers[0]);
-            document.getElementById("display2").innerHTML=parseInt(headers[1]);
-            modifyDisplay(0,"display1");
-            modifyDisplay(0,"display2");
+            document.getElementById("display1").innerHTML = parseInt(headers[0]);
+            document.getElementById("display2").innerHTML = parseInt(headers[1]);
+            modifyDisplay(0, "display1");
+            modifyDisplay(0, "display2");
+        });
+    }
+
+    // Function to update the CSV via a PHP script
+    function updateCSV(displayID, value) {
+        fetch('update_csv.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ displayID, value }), // Send display ID and new value
         })
+        .then(response => response.json())
+        .then(data => {
+            console.log('CSV updated successfully:', data);
+        })
+        .catch((error) => {
+            console.error('Error updating CSV:', error);
+        });
     }
 
     loadValues();
 </script>
+
