@@ -80,51 +80,42 @@
     </body>
 </html>
 <script>
+    // Modify display and send updates to Flask API
     function modifyDisplay(i, displayID) {
         let number = document.getElementById(displayID).innerHTML;
         number = +number + +i;
+        
+        // Ensure the number is within the 0-99 range
         if (number >= 0 && number <= 99) {
             if (number < 10) {
                 number = "0" + number;
             }
             document.getElementById(displayID).innerHTML = number;
 
-            // Send the updated value to the server to update the CSV
-            updateCSV(displayID, number);
+            // Send the update request to the Flask API
+            updateDisplayAPI(displayID, i > 0 ? 'increase' : 'decrease');
         }
     }
 
-    function loadValues() {
-        fetch('text.csv')
-        .then(response => response.text())  // Convert to text
-        .then(data => {
-            const rows = data.split('\n'); // Split the CSV into rows
-            const headers = rows[0].split(','); // Extract headers
-            document.getElementById("display1").innerHTML = parseInt(headers[0]);
-            document.getElementById("display2").innerHTML = parseInt(headers[1]);
-            modifyDisplay(0, "display1");
-            modifyDisplay(0, "display2");
-        });
-    }
+    // Send update to Flask API (GET request)
+    function updateDisplayAPI(displayID, action) {
+        const url = `/requests/post?${displayID}=${action}`;
 
-    // Function to update the CSV via a PHP script
-    function updateCSV(displayID, value) {
-        fetch('update_csv.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ displayID, value }), // Send display ID and new value
+        fetch(url, {
+            method: 'GET',
         })
         .then(response => response.json())
         .then(data => {
-            console.log('CSV updated successfully:', data);
+            // Update display with the value from API
+            document.getElementById(displayID).innerHTML = data[displayID];
+            console.log(`API response: ${displayID} updated to`, data[displayID]);
         })
-        .catch((error) => {
-            console.error('Error updating CSV:', error);
+        .catch(error => {
+            console.error('Error updating via API:', error);
         });
     }
 
+    // Load initial values on page load
     loadValues();
 </script>
 
