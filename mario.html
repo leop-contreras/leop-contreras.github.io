@@ -99,23 +99,26 @@
 
     // Send update to Flask API (GET request)
     function updateDisplayAPI(displayID, action) {
-        const url = `http://40.233.3.143:5000/requests/post?${displayID}=${action}`;
+    const url = `https://b178-40-233-3-143.ngrok-free.app/requests/post?${displayID}=${action}`;
 
-        fetch(url, {
-            method: 'GET',
-        })
-        .then(response => response.json())
-        .then(data => {
-            // Update display with the value from API
-            document.getElementById(displayID).innerHTML = data[displayID];
-            console.log(`API response: ${displayID} updated to`, data[displayID]);
-        })
-        .catch(error => {
-            console.error('Error updating via API:', error);
-        });
-    }
+    fetch(url, {
+        method: 'GET',
+        headers: {
+            'ngrok-skip-browser-warning': 'anyvalue' // Add the custom header
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Update display with the value from API
+        document.getElementById(displayID).innerHTML = data[displayID];
+        console.log(`API response: ${displayID} updated to`, data[displayID]);
+    })
+    .catch(error => {
+        console.error('Error updating via API:', error);
+    });
+}
 
-    // Load initial values on page load
-    loadValues();
+// Load initial values on page load
+loadValues();
 </script>
 
