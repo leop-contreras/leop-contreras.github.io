@@ -82,19 +82,7 @@
 <script>
     // Modify display and send updates to Flask API
     function modifyDisplay(i, displayID) {
-        let number = document.getElementById(displayID).innerHTML;
-        number = +number + +i;
-        
-        // Ensure the number is within the 0-99 range
-        if (number >= 0 && number <= 99) {
-            if (number < 10) {
-                number = "0" + number;
-            }
-            document.getElementById(displayID).innerHTML = number;
-
-            // Send the update request to the Flask API
             updateDisplayAPI(displayID, i > 0 ? 'increase' : 'decrease');
-        }
     }
 
     // Send update to Flask API (GET request)
@@ -118,7 +106,9 @@
     });
 }
 
-// Load initial values on page load
-loadValues();
+modifyDisplay(1, 'display1');
+modifyDisplay(-1, 'display2');
+modifyDisplay(1, 'display1');
+modifyDisplay(-1, 'display2');
 </script>
 
