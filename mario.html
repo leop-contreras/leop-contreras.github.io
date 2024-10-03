@@ -99,7 +99,7 @@
 
     // Send update to Flask API (GET request)
     function updateDisplayAPI(displayID, action) {
-        const url = `/requests/post?${displayID}=${action}`;
+        const url = `http://40.233.3.143:5000/requests/post?${displayID}=${action}`;
 
         fetch(url, {
             method: 'GET',
