@@ -1,249 +1,107 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>Leonardo P. Contreras</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+  	<meta charset="utf-8">
+  	<meta name="viewport" content="initial-scale=1, width=device-width">
+  	
+  	<link rel="stylesheet"  href="./index.css" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600&display=swap" />
+  	
+  	<style>
+        .hi-im {
+  	position: absolute;
+  	top: 386px;
+  	left: 87px;
+}
+.leonardo-contreras {
+  	position: absolute;
+  	top: 386px;
+  	left: 400px;
+}
+.im-a-backend {
+  	position: absolute;
+  	top: 520px;
+  	left: 87px;
+  	font-size: 52px;
+}
+.rubix-1-icon {
+  	position: absolute;
+  	top: 201px;
+  	left: 1226px;
+  	width: 667.9px;
+  	height: 667.9px;
+  	object-fit: contain;
+}
+.cvbutton-child {
+  	position: absolute;
+  	height: 100%;
+  	width: 100%;
+  	top: 0%;
+  	right: 0%;
+  	bottom: 0%;
+  	left: 0%;
+  	border-radius: 40px;
+  	border: 8px solid #3b00ff;
+  	box-sizing: border-box;
+}
+.download-my-cv {
+  	position: absolute;
+  	width: 79.78%;
+  	top: 17.39%;
+  	left: 10.22%;
+  	font-weight: 600;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+}
+.cvbutton {
+  	position: absolute;
+  	top: 620px;
+  	left: 87px;
+  	width: 460px;
+  	height: 115px;
+  	text-align: center;
+  	font-size: 48px;
+}
+.slide-169-1 {
+  	width: 100%;
+  	position: relative;
+  	background-color: #100911;
+  	height: 1080px;
+  	overflow: hidden;
+  	text-align: left;
+  	font-size: 96px;
+  	color: #fff;
+  	font-family: Khula;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
 
-        body {
-            background-color: #110212;
-            height: 100vh;
-            margin: 0;
-        }
-
-        h1 {
-            color: white;
-            font-family: "Barlow", sans-serif;
-            font-weight: 300;
-            font-style: normal;
-            font-size: 4rem;
-        }
-
-        h2 {
-            color: white;
-            font-family: "Barlow", sans-serif;
-            font-weight: 300;
-            font-style: normal;
-            font-size: 3rem;
-        }
+body {
+  	margin: 0;
+  	line-height: normal;
+}
 
 
-        h3 {
-            color: white;
-            font-family: "Barlow", sans-serif;
-            font-weight: 300;
-            font-style: normal;
-            font-size: 2rem;
-        }
-
-        p,
-        ul,
-        li {
-            color: white;
-            font-family: "Barlow", sans-serif;
-            font-weight: 300;
-            font-style: normal;
-            font-size: 1.2rem;
-        }
-
-        .accent {
-            color: #9D98E8;
-        }
-
-        #rubix {
-            width: 70%;
-            transform: rotate(-25deg);
-        }
-
-        .button_slide {
-            color: white;
-            background-color: rgba(0, 0, 0, 0);
-            border: 2px solid #4F4AB5;
-            border-radius: 10px;
-            display: inline-block;
-            font-size: 1.1rem;
-            width: 12rem;
-            cursor: pointer;
-            box-shadow: inset 0 0 0 0 #4F4AB5;
-            transition: ease-out 0.4s;
-            text-align: center;
-            text-decoration: none;
-        }
-
-        .slide_right:hover {
-            box-shadow: inset 400px 0 0 0 #4F4AB5, 0 0 5px #9D98E8;
-            border: 2px solid #4F4AB5;
-            color: white;
-        }
-
-        .about-image {
-            width: 100%;
-            height: 20rem;
-            object-fit: cover;
-        }
-
-        .list-item-spacing {
-            margin-bottom: 0.75rem;
-        }
-
-        .skills-margin {
-            margin-top: 5rem;
-            margin-bottom: 10rem;
-        }
-
-        .card-decor {
-            background-color: rgb(0, 0, 0, 0);
-            border: 2px solid #4F4AB5;
-            min-height: 25rem;
-        }
-
-        .card-body {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 25rem;
-        }
-
-        .project-description {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: normal;
-            margin-top: 1rem;
-            word-wrap: break-word;
-        }
-
-        .project-image {
-            width: 100%;
-            height: auto;
-            max-width: 15rem;
-            aspect-ratio: 1;
-        }
     </style>
+  	
 </head>
-
 <body>
-    <div class="ms-4 mt-3 fixed-top">
-        <a class="navbar-brand" href="#cover">
-            <img src="./assets/images/favicon.ico" alt="Logo" width="40" height="40" class="d-inline-block align-middle"
-                style="margin-right: 10px; margin-left: -10px;">
-        </a>
-    </div>
-
-    <div class="container">
-
-        <section class="row align-items-center vh-100 text-center text-md-start" id="cover">
-            <div class="col-8 d-flex flex-column align-items-center align-items-md-start">
-                <h1 class="my-auto">Hi! I'm <span class="accent">Leonardo Contreras</span></h1>
-                <h3 class="my-1">I'm a backend developer</h3>
-                <a class="button_slide slide_right mt-4 py-2 px-3" href="./assets/cv.pdf" download="cv.pdf">Download my
-                    CV</a>
-            </div>
-            <div class="col-4 justify-content-center">
-                <img src="./assets/images/rubix.png" id="rubix" class="img-fluid">
-            </div>
-        </section>
-
-        <section class="row align-items-center text-center text-md-start" id="about">
-            <div class="align-items-center">
-                <h2 class="my-auto"><span class="accent">About Me</span></h2>
-                <div class="row">
-                    <div class="col py-3">
-                        <p style="text-align: justify;">Hi there! I'm Leo and I'm a student at Universidad
-                            Panamericana, I'm getting a degree in Data Intelligence and Cybersecurity. I'm a backend
-                            developer, although sometimes fullstack, who loves to work on projects that make a
-                            difference in the everyday life of those around me.</p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row  align-items-center">
-                    <img src="assets/images/developer.jpg" class="rounded about-image">
-                </div>
-            </div>
-        </section>
-
-        <section class="row align-items-center text-center pt-5 skills-margin" id="skills">
-            <div class="row justify-content-center align-items-center">
-                <div class="col-4 align-items-start text-start">
-                    <img src="./assets/images/thumbs-up.webp" style="width: 15rem;" class="img-fluid">
-                </div>
-                <div class="col-8">
-                    <div class="row">
-                        <div class="col text-center">
-                            <h3 class="accent">Education</h3>
-                            <ul style="list-style-type: disc; padding-left: 0; text-align: center; position: relative;">
-                                <li class="list-item-spacing">High School - Centro Educativo Cocoyoc</li>
-                                <li class="list-item-spacing">Current undergraduate in Data Intelligence and
-                                    Cybersecurity at Universidad Panamericana</li>
-                                <li class="list-item-spacing">Certification in Java - Beginner level</li>
-                                <li class="list-item-spacing">Certification in Financial Education - CONDUSEF</li>
-                            </ul>
-                        </div>
-                        <div class="col ms-5 text-end">
-                            <h3 class="accent">Experience</h3>
-                            <ul style="list-style-type: disc; padding-left: 0; position: relative;">
-                                <li>Part of the iOS Team as a Backend Developer</li>
-                            </ul>
-                            <h3 class="accent">Awards</h3>
-                            <ul style="list-style-type: disc; padding-left: 0; position: relative;">
-                                <li>Second place in Python Scholarship Contest</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="row align-items-center text-center text-md-start" id="projects">
-            <h2 class="text-center mb-4 accent">Projects</h2>
-            <div class="row">
-                <!-- Project 1 -->
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="card card-decor shadow-sm">
-                        <div class="card-body">
-                            <h3 class="text-center">Smartphones Analysis</h3>
-                            <div class="d-flex justify-content-center">
-                                <img src="./assets/images/streamlit.png" class="project-image">
-                            </div>
-                            <strong><p class="project-description">Co-Developer</p></strong>
-                            <p class="project-description">Programmed with Python using streamlit, analyzing trends and other useful information from a smartphone database.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="card card-decor shadow-sm">
-                        <div class="card-body">
-                            <h3 class="text-center">Broken Battleship</h3>
-                            <div class="d-flex justify-content-center">
-                                <img src="./assets/images/battleship.png" class="project-image">
-                            </div>
-                            <strong><p class="project-description">Lead Developer</p></strong>
-                            <p class="project-description">Programmed in C++ as the final project of a University course. It's an interesting version of the classic game of battleship. It was graded as the best project of the class.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <div class="col-12 col-md-4 mb-4">
-                    <div class="card card-decor shadow-sm">
-                        <div class="card-body">
-                            <h3 class="text-center">Magic Lock</h3>
-                            <div class="d-flex justify-content-center">
-                                <img src="./assets/images/lock.png" class="project-image">
-                            </div>
-                            <strong><p class="project-description">Developer</p></strong>
-                            <p class="project-description">This is a preview of an ongoing project. Made for Web Design class, programmed in JavaScript. It's a game that consists of a lock that unlocks by aligning the correct symbols by rotating the stone circles.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>        
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  	
+  	<div class="slide-169-1">
+    		<div class="hi-im">Hi! I’m</div>
+    		<div class="leonardo-contreras">Leonardo Contreras</div>
+    		<div class="im-a-backend">I’m a backend developer</div>
+    		<img class="rubix-1-icon" alt="" src="rubix 1.png">
+    		
+    		<div class="cvbutton">
+      			<div class="cvbutton-child">
+      			</div>
+      			<div class="download-my-cv">Download my CV</div>
+    		</div>
+  	</div>
+  	
+  	
+  	
+  	
 </body>
-
 </html>
