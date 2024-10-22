@@ -39,35 +39,54 @@
             }
 
             table button{
-                width: 3rem;
-                height: 3rem;
+                width: 2.5rem;
+                height: 2.5rem;
             }
             .displayNumber{
                 font-family: "Oxanium", sans-serif;
                 font-size: 2.5rem;
                 letter-spacing: 5px;
-                background-color: rgb(27, 29, 29);
+                background-color: rgb(36, 37, 37);
                 color: white;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                width: 8rem;
-                height: 6rem;
+                width: 8.2rem;
+                height: 5rem;
+                transition: all 300ms;
             }
             .plus-button{
-                background-color: rgb(23, 182, 23);
+                background-color: rgb(0, 177, 109);
                 color: white;
             }
             .minus-button{
-                background-color: rgb(255, 86, 8);
+                background-color: rgb(199, 30, 0);
                 color:white;
             }
             .plus-button:hover{
-                background-color: rgb(14, 112, 14);
+                background-color: rgb(0, 151, 93);
                 color: white;
             }
             .minus-button:hover{
-                background-color: rgb(180, 65, 11);
+                background-color: rgb(158, 45, 1);
+                color: white;
+            }
+            .plus-button:hover:active{
+                background-color: rgb(0, 151, 93);
+                color: white;
+            }
+            .minus-button:hover:active{
+                background-color: rgb(158, 45, 1);
+                color: white;
+            }
+            .plus-button:disabled{
+                background-color: rgb(66, 128, 104);
+                opacity: 100%;
+                color: white;
+            }
+            .minus-button:disabled{
+                background-color: rgb(116, 74, 58);
+                opacity: 100%;
                 color: white;
             }
             .centercenter{
@@ -79,23 +98,42 @@
             h2{
                 font-size: 2.5rem;
             }
+            
+            #title{
+                position: relative;
+                animation: float 5s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0% {
+                    transform: translateY(0);
+                }
+
+                50% {
+                    transform: translateY(-10px);
+                }
+
+                100% {
+                    transform: translateY(0);
+                }
+            }
         </style>
     </head>
     <body>
         <div class="contenedor d-flex">
             <div class="m-auto">
-                <div class="mx-auto">
-                    <h2 class="text-top text-center">MARIO CONTADORES</h2>
+                <div class="mx-auto my-3">
+                    <h2 class="text-top text-center" id="title">MARIO CONTADORES</h2>
                 </div>
                 <p class="text-center">"UY, ESA CHAVA ESTA GUAPA"</p>
                 <div div class="m-auto text-center">
                     <table class="centercenter">
                         <tr>
                             <td rowspan="2"><div id="display1" class="displayNumber">0</div></td>
-                            <td><button class="btn plus-button centercenter" onclick="modifyDisplay(1,'display1')"><span>+</span></button></td>
+                            <td><button class="btn plus-button centercenter" onclick="modifyDisplay(1,'display1',this)"><span>+</span></button></td>
                         </tr>
                         <tr>
-                            <td><button class="btn minus-button centercenter" onclick="modifyDisplay(-1,'display1')"><span>-</span></button></td>
+                            <td><button class="btn minus-button centercenter" onclick="modifyDisplay(-1,'display1',this)"><span>-</span></button></td>
                         </tr>
                     </table>
                 </div>
@@ -105,10 +143,10 @@
                     <table class="centercenter">
                         <tr>
                             <td rowspan="2"><div id="display2" class="displayNumber">0</div></td>
-                            <td><button class="btn btn-danger centercenter" onclick="modifyDisplay(1,'display2')"><span>+</span></button></td>
+                            <td><button class="btn plus-button centercenter" onclick="modifyDisplay(1,'display2',this)"><span>+</span></button></td>
                         </tr>
                         <tr>
-                            <td><button class="btn btn-warning centercenter" onclick="modifyDisplay(-1,'display2')"><span>-</span></button></td>
+                            <td><button class="btn  minus-button centercenter" onclick="modifyDisplay(-1,'display2',this)"><span>-</span></button></td>
                         </tr>
                     </table>
                 </div>
@@ -120,48 +158,69 @@
 </html>
 <script>
     // Modify display and send updates to Flask API
-    function modifyDisplay(i, displayID) {
-            updateDisplayAPI(displayID, i > 0 ? 'increase' : 'decrease');
+    function modifyDisplay(i, displayID, button) {
+        button.disabled = true;
+        updateDisplayAPI(displayID, i > 0 ? 'increase' : 'decrease');
+        setTimeout(function() {
+            button.disabled = false;
+        }, 500);
     }
 
     // Send update to Flask API (GET request)
     function updateDisplayAPI(displayID, action) {
-    const url = `https://b178-40-233-3-143.ngrok-free.app/requests/post?${displayID}=${action}`;
-
-    fetch(url, {
-        method: 'GET',
-        headers: {
-            'ngrok-skip-browser-warning': 'anyvalue' // Add the custom header
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Update display with the value from API
-        document.getElementById(displayID).innerHTML = data[displayID];
-        console.log(`API response: ${displayID} updated to`, data[displayID]);
-    })
-    .catch(error => {
-        console.error('Error updating via API:', error);
-    });
-
+        getDisplayValue(displayID, action).then(value => {
+                if(value >= 0){
+                document.getElementById(displayID).innerHTML = value;
+                console.log(`API response: ${displayID} updated to`, value);
+            }
+        });
     }
 
-function isMobile() {
-    const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    return regex.test(navigator.userAgent);
+    async function getDisplayValue(displayID, action){
+        try {
+            const url = `https://b178-40-233-3-143.ngrok-free.app/requests/post?${displayID}=${action}`;
+
+            const response = await fetch(url, {
+                method: 'GET',
+                headers: {
+                    'ngrok-skip-browser-warning': 'anyvalue'
+                }
+            });
+
+            const data = await response.json();
+            return data[displayID];  // Return the fetched value
+        } catch (error) {
+            console.error('Error updating via API:', error);
+            return -99;  // Return fallback value in case of an error
+        }
+    }
+
+    function isMobile() {
+        const regex = /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+        return regex.test(navigator.userAgent);
     }
     
-    var r = document.querySelector(':root');
-    if (isMobile()) {
-        r.style.setProperty('--font-custom-size', '1vw');
-        console.log("Mobile device detected");
-    } else {
-        console.log("Desktop device detected");
-    }
+var r = document.querySelector(':root');
+if (isMobile()) {
+    r.style.setProperty('--font-custom-size', '1vh');
+    console.log("Mobile device detected");
+} else {
+    console.log("Desktop device detected");
+}
 
-modifyDisplay(1, 'display1');
-modifyDisplay(-1, 'display1');
-modifyDisplay(1, 'display2');
-modifyDisplay(-1, 'display2');
+    function initialAnimation(displayID) {
+        getDisplayValue(displayID, 'increase').then(value => {
+            setTimeout(100);
+            getDisplayValue(displayID, 'decrease');
+            document.getElementById(displayID).innerHTML = value-1;
+            });
+    };
+
+
+window.onload = function() {
+    initialAnimation('display1');
+    initialAnimation('display2');
+};
+
 </script>
 
