@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
-import { SiPostgresql, SiPython, SiReact, SiTailwindcss, SiTypescript } from '@icons-pack/react-simple-icons'
+import { SiPostgresql, SiPython, SiReact } from '@icons-pack/react-simple-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type Project = {
