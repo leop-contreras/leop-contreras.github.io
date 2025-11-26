@@ -53,12 +53,12 @@ export default function Landing() {
                         "radial-gradient(at 56% 86%, hsla(198,73%,39%,0.1) 0px, transparent 50%)"
                     }}
                 >
-                <div className='w-screen h-[150vh] lg:h-screen flex flex-col lg:flex-row justify-center lg:gap-0 lg:justify-between items-center px-2 lg:px-8'>
+                <div className='w-screen h-[120vh] lg:h-screen flex flex-col lg:flex-row justify-center lg:gap-0 lg:justify-between items-center px-2 lg:px-8'>
                     <div className="w-full h-screen lg:h-full flex flex-col justify-center items-center">
                         <h1 className='text-6xl 2xl:text-7xl text-white font-bold'>Hi there!</h1>
                         <h2 className='text-4xl 2xl:text-5xl text-white'>My name is Leo</h2>
                     </div>
-                    <div className='w-full h-[50vh] lg:h-full flex flex-col justify-center items-center px-2 lg:px-8 gap-6'>
+                    <div className='w-full h-[20vh] lg:h-full flex flex-col justify-center items-center px-2 lg:px-8 gap-6'>
                         <span className='text-white 2xl:text-lg text-justify w-full lg:max-w-4xl'>
                             I'm a Fullstack Developer (right now mostly focused on frontend). I'm committed to delivering well-organized, high-quality solutions with dedication.
                         </span>
