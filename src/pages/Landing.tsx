@@ -94,7 +94,7 @@ export default function Landing() {
 
                 <div className='w-full my-12 flex flex-col justify-center items-center gap-2 px-4 lg:px-8'>
                     <span className='text-white text-3xl text-center'>This website is still WIP</span>
-                    <span className='text-white text-center'>Last Updated: 2024/11/25</span>
+                    <span className='text-white text-center'>Last Updated: 2024/12/02</span>
                 </div>
             </div>
         </>

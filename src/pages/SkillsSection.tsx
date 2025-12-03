@@ -66,7 +66,7 @@ export default function SkillsSection() {
                         <span className='ml-6'>+Xyrs of experience</span>
                     </div>
                 </div>
-                <div className='w-full lg:max-w-7xl flex flex-col gap-8 lg:gap-0 lg:flex-row justify-between'>
+                <div className='w-full lg:max-w-[1536px] flex flex-col gap-8 lg:gap-0 lg:flex-row justify-between'>
                     <div className='flex flex-col justify-start items-start gap-3'>
                         <span className='text-2xl mb-1'>Backend</span>
                         {skills.filter(skill => skill.type === "backend").map((skill) => (
