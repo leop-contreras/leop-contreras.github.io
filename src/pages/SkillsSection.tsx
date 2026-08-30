@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTemperatureFull, faTemperatureHalf, faTemperatureQuarter, faTemperatureThreeQuarters } from '@fortawesome/free-solid-svg-icons';
-import { SiCplusplus, SiDocker, SiFastapi, SiFigma, SiFirebase, SiFlutter, SiPostgresql, SiPython, SiReact, SiSupabase, SiTailwindcss, SiTypescript, type IconType } from '@icons-pack/react-simple-icons'
+import { SiClaude, SiCloudflareworkers, SiCplusplus, SiDocker, SiFastapi, SiFigma, SiGit, SiGo, SiMysql, SiNextdotjs, SiPostgresql, SiPython, SiReact, SiSharp, SiSupabase, SiTailwindcss, SiTraefikproxy, SiTypescript, SiWireguard, type IconType } from '@icons-pack/react-simple-icons'
 import { useEffect, useState } from "react";
 
 interface Skill {
@@ -13,20 +13,27 @@ interface Skill {
 }
 
 const skills: Skill[] = [
-    { icon: SiReact, iconColor: '#61DAFB', name: 'React', type: 'frontend', skillLevel: "advanced", experience: 1 },
-    { icon: SiTailwindcss, iconColor: '#06B6D4', name: 'TailwindCSS', type: 'frontend', skillLevel: "intermediate", experience: 1 },
-    { icon: SiFlutter, iconColor: '#02569B', name: 'Flutter', type: 'frontend', skillLevel: "beginner", experience: 1 },
-    { icon: SiFigma, iconColor: '#F24E1E', name: 'Figma', type: 'frontend', skillLevel: "intermediate", experience: 1 },
+    { icon: SiReact, iconColor: '#61DAFB', name: 'React', type: 'frontend', skillLevel: "advanced", experience: 2 },
+    { icon: SiNextdotjs, iconColor: '#FFFFFF', name: 'Next.js', type: 'frontend', skillLevel: "advanced", experience: 1 },
+    { icon: SiTailwindcss, iconColor: '#06B6D4', name: 'TailwindCSS', type: 'frontend', skillLevel: "advanced", experience: 2 },
+    { icon: SiFigma, iconColor: '#F24E1E', name: 'Figma', type: 'frontend', skillLevel: "intermediate", experience: 2 },
 
     { icon: SiPython, iconColor: '#3776AB', name: 'Python', type: 'backend', skillLevel: "advanced", experience: 3 },
-    { icon: SiFastapi, iconColor: '#009688', name: 'FastAPI', type: 'backend', skillLevel: "intermediate", experience: 2 },
-    { icon: SiTypescript, iconColor: '#3178C6', name: 'TypeScript', type: 'backend', skillLevel: "intermediate", experience: 1 },
+    { icon: SiTypescript, iconColor: '#3178C6', name: 'TypeScript', type: 'backend', skillLevel: "advanced", experience: 2 },
+    { icon: SiFastapi, iconColor: '#009688', name: 'FastAPI', type: 'backend', skillLevel: "advanced", experience: 2 },
     { icon: SiPostgresql, iconColor: '#4169E1', name: 'PostgreSQL', type: 'backend', skillLevel: "intermediate", experience: 2 },
-    { icon: SiCplusplus, iconColor: '#663399', name: 'C#', type: 'backend', skillLevel: "intermediate", experience: 2 },
+    { icon: SiMysql, iconColor: '#4479A1', name: 'MySQL', type: 'backend', skillLevel: "intermediate", experience: 1 },
+    { icon: SiGo, iconColor: '#00ADD8', name: 'Go', type: 'backend', skillLevel: "beginner", experience: 1 },
+    { icon: SiSharp, iconColor: '#663399', name: 'C#', type: 'backend', skillLevel: "beginner", experience: 2 },
+    { icon: SiCplusplus, iconColor: '#00599C', name: 'C++', type: 'backend', skillLevel: "beginner", experience: 2 },
 
-    { icon: SiSupabase, iconColor: '#3FCF8E', name: 'Supabase', type: 'other', skillLevel: "beginner", experience: 1 },
-    { icon: SiFirebase, iconColor: '#DD2C00', name: 'Firebase', type: 'other', skillLevel: "intermediate", experience: 1 },
-    { icon: SiDocker, iconColor: '#2496ED', name: 'Docker', type: 'other', skillLevel: "beginner", experience: 2 },
+    { icon: SiDocker, iconColor: '#2496ED', name: 'Docker', type: 'other', skillLevel: "advanced", experience: 2 },
+    { icon: SiCloudflareworkers, iconColor: '#F38020', name: 'Cloudflare Workers', type: 'other', skillLevel: "advanced", experience: 1 },
+    { icon: SiSupabase, iconColor: '#3FCF8E', name: 'Supabase', type: 'other', skillLevel: "intermediate", experience: 1 },
+    { icon: SiWireguard, iconColor: '#88171A', name: 'WireGuard', type: 'other', skillLevel: "beginner", experience: 1 },
+    { icon: SiTraefikproxy, iconColor: '#24A1C1', name: 'Traefik', type: 'other', skillLevel: "beginner", experience: 1 },
+    { icon: SiGit, iconColor: '#F05032', name: 'Git', type: 'other', skillLevel: "advanced", experience: 3 },
+    { icon: SiClaude, iconColor: '#D97757', name: 'Claude', type: 'other', skillLevel: "advanced", experience: 1 },
 ];
 
 export default function SkillsSection() {

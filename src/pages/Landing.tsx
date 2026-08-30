@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from 'react';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
-import { SiPostgresql, SiPython, SiReact, type IconType } from '@icons-pack/react-simple-icons'
+import { SiNextdotjs, SiPython, SiTypescript, type IconType } from '@icons-pack/react-simple-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ProjectsSection from './ProjectsSection';
 const SkillsSection = lazy(() => import('./SkillsSection'));
@@ -17,9 +17,9 @@ type Skill = {
 
 export default function Landing() {
     const highlightedSkills: Skill[] = [
+        { icon: SiTypescript, iconColor: '#3178C6', name: 'TypeScript', experience: 2 },
+        { icon: SiNextdotjs, iconColor: '#FFFFFF', name: 'Next.js', experience: 1 },
         { icon: SiPython, iconColor: '#3776AB', name: 'Python', experience: 3 },
-        { icon: SiPostgresql, iconColor: '#4169E1', name: 'PostgreSQL', experience: 2 },
-        { icon: SiReact, iconColor: '#61DAFB', name: 'React', experience: 1 },
     ];
 
     // Scroll Indicator State
@@ -61,9 +61,14 @@ export default function Landing() {
                             <h2 className='text-4xl 2xl:text-5xl text-white'>My name is Leo</h2>
                         </div>
                         <div className='w-full h-[20vh] lg:h-full flex flex-col justify-center items-center px-2 lg:px-8 gap-6 2xl:gap-10'>
-                            <span className='text-white 2xl:text-lg text-justify w-full lg:max-w-4xl'>
-                                I'm a Fullstack Developer actively transitioning toward DevSecOps with cybersecurity at the core of my skill set. I'm committed to delivering well-organized, high-quality solutions with dedication.
-                            </span>
+                            <div className='flex flex-col gap-3 w-full lg:max-w-4xl'>
+                                <span className='text-white 2xl:text-lg text-justify'>
+                                    I'm a full-stack engineer, security practitioner and technical lead. I build and ship web products end to end &mdash; Next.js and TypeScript on Cloudflare Workers &mdash; and I design and self-host the Python/FastAPI and Docker infrastructure behind them.
+                                </span>
+                                <span className='text-white 2xl:text-lg text-justify'>
+                                    Right now I'm Founding Engineer at a remote agency and lead of a 25-member university CTF team.
+                                </span>
+                            </div>
                             <div className='text-white hidden lg:flex flex-col w-full gap-2 items-center'>
                                 <span className='text-3xl mb-2'>My Skills</span>
                                 <div className='flex flex-row items-center justify-between w-full lg:max-w-4xl'>
@@ -96,7 +101,7 @@ export default function Landing() {
 
                     <div className='w-full my-12 flex flex-col justify-center items-center gap-2 px-4 lg:px-8'>
                         <span className='text-white text-3xl text-center'>This website is still WIP</span>
-                        <span className='text-white text-center'>Last Updated: 2026/01/21</span>
+                        <span className='text-white text-center'>Last Updated: 2026/08/30</span>
                     </div>
                 </div>
             </div>

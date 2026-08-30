@@ -8,10 +8,13 @@ type Project = {
 }
 
 const projects: Project[] = [
+    { id: 0, title: 'CREA Studio', status: 'Deployed', image: 'projects/projectCrea.png', link: 'https://creativead.studio', langs: ['NextJS', 'Cloudflare Workers', 'TailwindCSS'] },
+    { id: 3, title: 'Client A', status: 'Deployed', image: 'projects/projectClientA.png', link: 'https://verser-landing.hosting-12b.workers.dev', langs: ['NextJS','Cloudflare Workers', 'Supabase']  },
+    { id: 1, title: 'PwnTeras', status: 'Deployed', image: 'projects/projectPwnTeras.png', link: '', langs: ['NextJS', 'Supabase', 'Cloudflare Workers'] },
+    { id: 2, title: 'learn.pwnteras', status: 'Deployed', image: 'projects/projectLearn.png', link: '', langs: ['NextJS','Supabase',"Docker","Wireguard"]  },
     { id: 1, title: 'ERA Official Website', status: 'Deployed', image: 'projects/era.png', link: 'https://oakland-era.web.app/', langs: ['React', 'TypeScript', 'TailwindCSS', 'Firebase'] },
     { id: 2, title: 'projectGoldfinch', status: 'InDev', image: 'projects/projectGoldfinch.png', link: '', langs: ['Flutter','Supabase']  },
-    { id: 3, title: 'projectTrack', status: 'InDev', image: 'projects/projectTrack.png', link: '', langs: ['Flutter']  },
-    { id: 4, title: 'projectSltTanager', status: 'InDev', image: 'projects/projectSltTanager.png', link: '', langs: ['React', 'Typescript', 'TailwindCSS', 'Firebase']},
+    { id: 3, title: 'projectTrack', status: 'Prototype', image: 'projects/projectTrack.png', link: '', langs: ['Flutter']  },
     { id: 5, title: 'Class Project #1', status: 'Prototype', image: 'projects/classproject1_v2.png', link: 'https://www.figma.com/proto/bMFj1jejhMDPBuEDBRZrEk/Proyecto-Final-Interfaces-HM?node-id=0-1&t=Gb1tnduyK6bjSw3d-1', langs: ['Figma']  },
 ];
 
